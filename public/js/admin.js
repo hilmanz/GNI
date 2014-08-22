@@ -8,6 +8,12 @@ $(document).ready(function() {
 	  type:'inline',
 	  midClick: true 
 	});
+	
+	$('.notibar .close').click(function(){
+		$(this).parent().fadeOut(function(){
+			$(this).remove();
+		});
+	});
 
 	if($.cookie("state") == 1) {
 		$('#body').addClass("smallmenu");
