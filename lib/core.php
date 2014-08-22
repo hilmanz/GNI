@@ -1,0 +1,141 @@
+<?php
+$output = 'html'; //type of output : html, json, plain
+$isAdmin = false;
+$current_path = "/";
+$params = array();
+define("_SLASH_","/");
+function processInput($uri){   
+	global $output;
+	$chunk = explode('?',$_SERVER['REQUEST_URI']);
+
+	$uri = implode('/', 
+    		array_slice(
+        	explode('/', $chunk[0]), 3));
+	$current_path = $uri;
+	if(eregi('json',$uri)){
+		$output = 'json';
+	}else{
+		$output = 'html';
+	}
+	if(eregi('.css',$uri)){
+		$uri = $base_url._SLASH_.$uri;
+		header($uri);
+		exit();
+	}
+
+    return $uri;    
+}
+
+function processOutput($response){
+	global $output,$isAdmin;
+	$content = $response;
+
+	if($output=='html' && !$isAdmin){
+		require_once "../views/header.php";
+		require_once "../views/body.php";
+		require_once "../views/footer.php";	
+	}else if($output=='html' && $isAdmin){
+		require_once "../views/admin/header.php";
+		require_once "../views/admin/body.php";
+		require_once "../views/admin/footer.php";	
+	}else{
+		print json_encode($response);
+	}
+	
+}
+
+function processResponse($router){
+	$dispatcher = new Phroute\Dispatcher($router);
+	try {
+	    $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], processInput($_SERVER['REQUEST_URI']));
+	} catch (Phroute\Exception\HttpRouteNotFoundException $e) {
+	    pr($e);      
+	    die();
+	} catch (Phroute\Exception\HttpMethodNotAllowedException $e) {
+	    pr($e);       
+	    die();
+	}
+	processOutput($response);
+}
+/*
+* wrapper for print_r, only print nicely in html
+*/
+function pr($obj){
+	echo "<pre>";
+	print_r($obj);
+	echo "</pre>";
+}
+
+
+function redirect($url){
+	global $base_url;
+	if(!eregi('http',$url)){
+		header("Location:".$base_url.$url);	
+	}else{
+		header("Location:".$url);
+	}
+	
+}
+function render($name){
+	ob_start();
+	require_once('../views/'.$name.'.php');
+	$test = ob_get_clean();
+	
+	return $test;
+}
+
+function getView($name){
+	global $app_path;
+	include($app_path.'/views/'.$name.'.php');
+}
+function isAdminLogin(){
+	return $_SESSION['isAdminLogin'];
+}
+function getAdminSession(){
+	return $_SESSIOn['session_admin'];
+}
+//write the absolute url of the path
+function url($path){
+	global $base_url;
+	return $base_url._SLASH_.$path;
+}
+//a shortcut of url($path)
+function u($path){
+	return url($path);
+}
+function h($str){
+	return htmlentities($str);
+}
+
+function setFlash($msg){
+	$_SESSION['flash'] = $msg;
+}
+function getFlash(){
+	return $_SESSION['flash'];
+}
+
+function getPath(){
+	return $current_path;
+}
+function pathHas($name){
+	$p = getPath();
+	if(strlen($name)==0 && strlen($p) == 0){
+		return true;
+	}
+
+	if(@eregi($name,$p)){
+		print "yay";
+		return true;
+	}else{
+		print "nay";
+	}
+}
+
+function set($name,$value){
+	global $params;
+	$params[$name] = $value;
+}
+function get($name){
+	global $params;
+	return $params[$name];
+}
