@@ -111,7 +111,9 @@ function setFlash($msg){
 	$_SESSION['flash'] = $msg;
 }
 function getFlash(){
-	return $_SESSION['flash'];
+	$msg =  $_SESSION['flash'];
+	$_SESSION['flash'] = null;
+	return $msg;
 }
 
 function getPath(){
@@ -138,4 +140,13 @@ function set($name,$value){
 function get($name){
 	global $params;
 	return $params[$name];
+}
+
+
+function select_options($data,$id,$label){
+	$str = "";
+	for($i=0;$i<sizeof($data);$i++){
+		$str.="<option value='{$data[$i][$id]}'>{$data[$i][$label]}</option>\n";
+	}
+	return $str;
 }

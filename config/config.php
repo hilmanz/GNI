@@ -5,7 +5,7 @@ $xml_slug = "xml";//if we found xml_slug in one of parameter, then we assume the
 $base_url = "http://localhost/duf/gni";
 $app_path = "/home/duf/htdocs/gni";
 $secret = md5("gninotgnu4ndb4b00n5");
-
+$upload_path = $app_path.'/public/content';
 //SETUP THE CONTROLLERS HERE
 //frontend controllers
 $controllers = array(

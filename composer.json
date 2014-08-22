@@ -1,6 +1,6 @@
 {
     "require": {
         "phroute/phroute": "1.*",
-        "hampel/validate": "2.*"
+        "cocur/slugify": "0.*"
     }
 }

@@ -29,67 +29,10 @@ $search_query = $_REQUEST['search'];
             	<div class="col1">
                     <div id="tabs">
                       <ul>
-                        <li><a href="#tabs-1">Collections</a></li>
-                        <li><a href="#tabs-2">Add Item</a></li>
+                        <li><a href="#tabs-1">Modify Item</a></li>
+                        <li><a href="#tabs-2">Instructions</a></li>
                       </ul>
                       <div id="tabs-1" class="tabcontent">
-                      <div class="shorter">
-                      	<form class="pure-form shortTable">
-                        	<span>Show</span>
-                                <select id="state">
-                                    <option>10</option>
-                                    <option>20</option>
-                                    <option>30</option>
-                                    <option>40</option>
-                                </select>
-                            <span>Entries</span>
-                        </form>
-                        <form class="pure-form searchBox" action="<?=url('admin/collections/')?>" method="GET" enctype="application/x-www-form-urlencoded">
-                            <input type="text" name="search" value="" placeholder="Judul, Nama Seniman, Nomor Inventory, Tahun" class="">
-                            <input type="hidden" name="total" value="<?=$limit?>"/>
-                            <input type="hidden" name="start" value="0"/>
-                            <button type="submit" class="pure-button btnSearch"><span class="icon-search">&nbsp;</span></button>
-                        </form>
-                      </div>
-                      <table class="pure-table pure-table-bordered">
-                            <thead>
-                                <tr>
-                                    <th width="1" class="center">No</th>
-                                    <th>Named</th>
-                                    <th>Artist</th>
-                                    <th>Obtained From</th>
-                                    <th>Year</th>
-                                    <th>Invent No</th>
-                                    <th width="100" class="center">Aksi</th>
-                                </tr>
-                            </thead>
-                        
-                            <tbody>
-                                <?php for($i=0;$i<sizeof($data);$i++):?>
-                                <?php
-                                $no = $i + intval($_REQUEST['start']) + 1;
-                                ?>
-
-                                <tr>
-                                    <td class="center"><?=$no?></td>
-                                    <td><?=$data[$i]['name']?></td>
-                                    <td><?=$data[$i]['artist_name']?></td>
-                                    <td><?=$data[$i]['obtain']?></td>
-                                    <td><?=$data[$i]['yr']?></td>
-                                    <td><?=$data[$i]['invent_no']?></td>
-                                    <td class="center">
-                                    	<a href="<?=url('admin/collections/edit/'.$data[$i]['id'])?>" class="iconbtn"><span class="icon-pencil">&nbsp;</span></a>
-                                    	<a href="#" class="iconbtn"><span class="icon-trash">&nbsp;</span></a>
-                                    </td>
-                                </tr>
-                                <?php endfor;?>
-                            </tbody>
-                        </table>
-                        <?php
-                        getView('admin/paging');
-                        ?>
-                      </div><!-- end .tabcontent -->
-                      <div id="tabs-2" class="tabcontent">
                         <form class="pure-form pure-form-stacked" 
                               action="<?=url('admin/collections/add')?>" 
                               method="POST" 
@@ -188,6 +131,10 @@ $search_query = $_REQUEST['search'];
                                 </div>
                             </fieldset>
                         </form>
+                      </div><!-- end .tabcontent -->
+                      <div id="tabs-2" class="tabcontent">
+                        <h3>Instructions</h3>
+                        <p>Lorem ipsum dolor sit amet</p>
                       </div><!-- end .tabcontent -->
                     </div><!-- end #tabs -->
                 </div><!-- end .col1 -->
