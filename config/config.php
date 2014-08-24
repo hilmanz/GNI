@@ -16,6 +16,12 @@ $controllers = array(
 	array('route'=>'artists','class'=>'Artists'),
 	array('route'=>'curators','class'=>'Curators'),
 	array('route'=>'art-types','class'=>'ArtTypes'),
+	array('route'=>'conditions','class'=>'Conditions'),
+	array('route'=>'status','class'=>'Status'),
+	array('route'=>'matrials','class'=>'Matrials'),
+	array('route'=>'metode','class'=>'Metode'),
+	array('route'=>'storages','class'=>'Storages'),
+	array('route'=>'users','class'=>'Users')
 );
 
 ?>

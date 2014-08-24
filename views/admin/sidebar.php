@@ -41,10 +41,12 @@ if(pathHas('')){
                 <span class="icon-cog">&nbsp;</span> <span class="navName">Setting</span>
                 </a>
                 <ul>
-                    <li><a href="<?=url('admin/settings/admins')?>">Administrators</a></li>
-                    <li><a href="<?=url('admin/settings/admins')?>">Exists Stats</a></li>
-                    <li><a href="<?=url('admin/settings/admins')?>">Matrials</a></li>
-                    <li><a href="<?=url('admin/settings/admins')?>">Obtained Way</a></li>
+                    <li><a href="<?=url('admin/users')?>">Managemen User</a></li>
+                    <li><a href="<?=url('admin/conditions')?>">Kondisi Barang</a></li>
+                    <li><a href="<?=url('admin/status')?>">Keberadaan Barang</a></li>
+                    <li><a href="<?=url('admin/matrials')?>">Matrials</a></li>
+                    <li><a href="<?=url('admin/metode')?>">Metode Perolehan</a></li>
+                    <li><a href="<?=url('admin/storages')?>">Tempat Penyimpanan</a></li>
                 </ul>
             </li>
             <li>

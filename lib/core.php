@@ -155,3 +155,7 @@ function select_options($data,$id,$label,$default=''){
 	}
 	return $str;
 }
+
+function now(){
+	return date("Y-m-d H:i:s");
+}
