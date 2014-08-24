@@ -38,10 +38,15 @@ $router = new Phroute\RouteCollector();
 //load the controller classes
 foreach($controllers as $ctrl){
 	try{
-		include_once "../includes/".$ctrl['class'].$suffix.".php";
-		if(class_exists($ctrl['class'].$suffix)){
-			$router->controller($ctrl['route'], $ctrl['class'].$suffix);			
+		
+		if(file_exists($app_path."/includes/".$ctrl['class'].$suffix.".php")){
+			include_once $app_path."/includes/".$ctrl['class'].$suffix.".php";
+			
+			if(class_exists($ctrl['class'].$suffix)){
+				$router->controller($ctrl['route'], $ctrl['class'].$suffix);			
+			}	
 		}
+		
 	}catch(Exception $err){
 		//do nothing
 	}

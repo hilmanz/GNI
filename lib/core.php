@@ -4,14 +4,32 @@ $isAdmin = false;
 $current_path = "/";
 $params = array();
 define("_SLASH_","/");
-function processInput($uri){   
-	global $output;
+function processInput($uri){  
+	
+	global $output,$base_url;
+
 	$chunk = explode('?',$_SERVER['REQUEST_URI']);
 
-	$uri = implode('/', 
-    		array_slice(
-        	explode('/', $chunk[0]), 3));
+	$c = explode('/',implode('/',explode('/',str_replace("https://","",str_replace("http://","",$base_url)))));
+	$arr = explode('/', $chunk[0]);
+	array_shift($c);
+	
+	$uri = "";
+	$n=0;
+	for($i=0;$i<sizeof($arr);$i++){
+		
+		if(!in_array($arr[$i],$c) && $arr[$i]!=''){
+			if($n>0){
+				$uri.="/";
+			}
+			$uri.=$arr[$i];
+			$n++;
+		}
+	}
+
+
 	$current_path = $uri;
+	
 	if(eregi('json',$uri)){
 		$output = 'json';
 	}else{
@@ -69,6 +87,7 @@ function pr($obj){
 
 function redirect($url){
 	global $base_url;
+	
 	if(!eregi('http',$url)){
 		header("Location:".$base_url.$url);	
 	}else{

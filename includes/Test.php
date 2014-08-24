@@ -2,23 +2,24 @@
 class Test extends Controller{
 	
 	public function anyIndex(){
-		//$rs = $db->query("SELECT * FROM tenribu.accounts WHERE id > ? LIMIT 10;",0);
-		$rs = $this->db->query("DELETE FROM tenribu.accounts WHERE id = ?",44);
-		return "test nih";
+		return "test aja";
 	}
-
+	public function getFoo(){
+		return "foo nih !";
+	}
 	
 	public function getData(){
 		return "html data nih";
 	}
 
 	//sample json
+	/*
 	public function getJson($action){
 		$arr = func_get_args();
 
 		return array('status'=>1);
 	}
-
+	*/
 	public function anyGeneratePassword(){
 
 		$rs = $this->db->query("SELECT * FROM admins");
