@@ -13,6 +13,9 @@ $controllers = array(
 	array('route'=>'logout','class'=>'Logout'),
 	array('route'=>'test','class'=>'Test'),
 	array('route'=>'collections','class'=>'Collections'),
+	array('route'=>'artists','class'=>'Artists'),
+	array('route'=>'curators','class'=>'Curators'),
+	array('route'=>'art-types','class'=>'ArtTypes'),
 );
 
 ?>

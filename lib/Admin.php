@@ -19,6 +19,7 @@ class Admin{
 			if(!$this->validate_session()){
 				redirect('/admin/login');
 			}
+			
 		}
 	}
 	public function afterFilter(){

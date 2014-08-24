@@ -29,7 +29,7 @@ function processInput($uri){
 function processOutput($response){
 	global $output,$isAdmin;
 	$content = $response;
-
+	
 	if($output=='html' && !$isAdmin){
 		require_once "../views/header.php";
 		require_once "../views/body.php";
@@ -143,10 +143,15 @@ function get($name){
 }
 
 
-function select_options($data,$id,$label){
+function select_options($data,$id,$label,$default=''){
 	$str = "";
 	for($i=0;$i<sizeof($data);$i++){
-		$str.="<option value='{$data[$i][$id]}'>{$data[$i][$label]}</option>\n";
+		if($default==$data[$i][$id]){
+			$str.="<option value='{$data[$i][$id]}' selected='selected'>{$data[$i][$label]}</option>\n";
+		}else{
+			$str.="<option value='{$data[$i][$id]}'>{$data[$i][$label]}</option>\n";	
+		}
+		
 	}
 	return $str;
 }

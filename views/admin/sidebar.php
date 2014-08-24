@@ -16,32 +16,23 @@ if(pathHas('')){
                 <a href="<?=url('admin/collections/')?>">
                 <span class="icon-books">&nbsp;</span> <span class="navName">Collections</span>
                 </a>
-                <ul>
-                    <li><a href="<?=url('admin/collections/')?>">Item List</a></li>
-                    <li><a href="<?=url('admin/collections/add')?>">Add Item</a></li>
-                </ul>
+               
             </li>
             <li>
                 <a href="<?=url('admin/artists/')?>">
                 <span class="icon-books">&nbsp;</span> <span class="navName">Artists</span>
                 </a>
-                <ul>
-                    <li><a href="<?=url('admin/artists/')?>">Artist list</a></li>
-                    <li><a href="<?=url('admin/artists/add')?>">Add Item</a></li>
-                </ul>
+               
             </li>
             <li>
                 <a href="<?=url('admin/curators/')?>">
                 <span class="icon-books">&nbsp;</span> <span class="navName">Curators</span>
                 </a>
-                <ul>
-                    <li><a href="<?=url('admin/curators/')?>">Curators list</a></li>
-                    <li><a href="<?=url('admin/curators/add')?>">Add Item</a></li>
-                </ul>
+               
             </li>
             <li>
-                <a href="<?=url('admin/users/')?>">
-                <span class="icon-books">&nbsp;</span> <span class="navName">Users</span>
+                <a href="<?=url('admin/art-types/')?>">
+                <span class="icon-books">&nbsp;</span> <span class="navName">Jenis Karya Seni</span>
                 </a>
                
             </li>

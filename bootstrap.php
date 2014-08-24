@@ -27,6 +27,7 @@ if(eregi('admin',$_SERVER['REQUEST_URI'])){
 	$suffix = "Admin";
 	$_SERVER['REQUEST_URI'] = str_replace("/admin/","/",$_SERVER['REQUEST_URI']);
 	$isAdmin = true;
+	
 }
 
 

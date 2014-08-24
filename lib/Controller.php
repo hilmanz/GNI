@@ -2,8 +2,12 @@
 class Controller{
 	var $db;
 	function __construct(){
-		global $db;
+		global $db,$isAdmin;
 		$this->db = $db;
+		if($isAdmin && !isAdminLogin()){
+			redirect('/admin/login');
+
+		}
 	}
 
 }

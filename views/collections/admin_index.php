@@ -79,7 +79,7 @@ $search_query = $_REQUEST['search'];
                                     <td><?=$data[$i]['invent_no']?></td>
                                     <td class="center">
                                     	<a href="<?=url('admin/collections/edit/'.$data[$i]['id'])?>" class="iconbtn"><span class="icon-pencil">&nbsp;</span></a>
-                                    	<a href="#" class="iconbtn"><span class="icon-trash">&nbsp;</span></a>
+                                    	<a href="<?=url('admin/collections/delete/'.$data[$i]['id'])?>" class="iconbtn"><span class="icon-trash">&nbsp;</span></a>
                                     </td>
                                 </tr>
                                 <?php endfor;?>

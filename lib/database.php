@@ -116,6 +116,30 @@ class DB{
 		
 		return $this->query($sql,$vals);
 	}
+	public function update($id,$table,$params){
+		$sql = "UPDATE {$table} SET ";
+		$vals = array();
+		$i=0;
+		foreach($params as $name=>$val){
+			if($name!='id'){
+				if($i>0){
+					$sql.=",";
+				}
+				$sql.=$name.'=?';
+				$vals[] = $val;
+				$i++;
+			}
+		}
+		$sql.=" WHERE id = ?";
+		$vals[] = $id;
+		return $this->query($sql,$vals);
+	}
+
+	//get single row from a table by its id
+	public function get($id,$table){
+		$rs = $this->query("SELECT * FROM {$table} WHERE id = ? LIMIT 1",$id);
+		return $rs[0];
+	}
 	public function saveAndUpdate($table,$params,$update_fields){
 		$sql = "INSERT INTO {$table}(";
 		$i=0;
@@ -139,6 +163,12 @@ class DB{
 			$updates.="{$update_fields[$i]} = VALUES ({$update_fields[$i]})";
 		}
 		$sql.=") VALUES( ".$values." ) ON DUPLICATE UPDATE {$updates}";
+	}
+	public function delete($id,$table){
+		return $this->query("DELETE FROM {$table} WHERE id = ?",$id);
+	}
+	public function sql(){
+		return $this->getLastSQL();
 	}
 }
 ?>
