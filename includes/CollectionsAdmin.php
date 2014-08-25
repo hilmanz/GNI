@@ -1,6 +1,13 @@
 <?php
 use Cocur\Slugify\Slugify;
 class CollectionsAdmin extends Controller{
+	public function beforeFilter(){
+		global $current_path;
+		
+		if(eregi('edit|delete|add|update',$current_path) && !admin_can_write()){
+			redirect('/admin/access_denied');
+		}
+	}
 	public function anyIndex(){
 		$data = $this->getCollections();
 		set('data',$data);
@@ -20,6 +27,16 @@ class CollectionsAdmin extends Controller{
 		set('exist_stats',$this->getExistStats());
 		set('art_types',$this->getArtTypes());
 		set('art_conditions',$this->getArtConditions());
+	}
+	public function getView($id){
+		$id = intval($id);
+
+		$rs = $this->getCollectionDetail($id);
+		set('rs',$rs[0]);
+
+		$this->populateForm();
+		
+		return render('collections/admin_view');
 	}
 	public function getEdit($id){
 		$id = intval($id);
@@ -114,6 +131,27 @@ class CollectionsAdmin extends Controller{
 				FROM collections a
 				INNER JOIN artists b ON a.artist_id = b.id 
 				WHERE a.id = ? LIMIT 1",$id);
+		
+		return $results;
+	}
+	public function getCollectionDetail($id){
+		$results = $this->db->query("SELECT a.*,b.name AS artist_name,c.name AS jenis_karya,d.name AS storage_name,
+										e.name AS curator,f.name AS keberadaan,g.name AS cara,h.name AS kondisi
+											FROM collections a
+											INNER JOIN artists b ON a.artist_id = b.id 
+											INNER JOIN art_types c
+											ON c.id = a.art_type_id
+											INNER JOIN storages d
+											ON d.id = a.storage_id
+											INNER JOIN curators e
+											ON e.id = a.curator_id
+											INNER JOIN exist_stats f
+											ON f.id = a.exist_stat_id
+											INNER JOIN obtained_ways g
+											ON g.id = a.obtained_way_id
+											INNER JOIN art_conditions h
+											ON h.id = a.art_condition_id
+											WHERE a.id = ? LIMIT 1;",$id);
 		
 		return $results;
 	}

@@ -30,6 +30,7 @@ if(pathHas('')){
                 </a>
                
             </li>
+            <?php if(admin_has_credential_access()):?>
             <li>
                 <a href="<?=url('admin/art-types/')?>">
                 <span class="icon-books">&nbsp;</span> <span class="navName">Jenis Karya Seni</span>
@@ -49,6 +50,7 @@ if(pathHas('')){
                     <li><a href="<?=url('admin/storages')?>">Tempat Penyimpanan</a></li>
                 </ul>
             </li>
+            <?php endif;?>
             <li>
                 <a href="javascript:void(0);" class="collapse">
                 <span class="icon-arrow-left2">&nbsp;</span> <span class="navName">Collapse Menu</span>

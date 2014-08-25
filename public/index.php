@@ -26,6 +26,10 @@ if(!$isAdmin){
 		}
 		
 	});
+	$router->get('/access_denied',function(){
+		return render('admin/access_denied');
+	});
+
 }
 
 

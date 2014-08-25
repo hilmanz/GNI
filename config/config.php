@@ -24,4 +24,10 @@ $controllers = array(
 	array('route'=>'users','class'=>'Users')
 );
 
+
+//ACLs
+$ACL = array('SUPERVISOR'=>array('read'=>1,'write'=>1,'credential'=>1),
+			  'EDITOR'=>array('read'=>1,'write'=>1,'credential'=>0),
+			  'READONLY'=>array('read'=>1,'write'=>0,'credential'=>0),
+			 );
 ?>

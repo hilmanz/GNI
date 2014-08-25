@@ -7,7 +7,7 @@ if($total==0) $total = 10;
 set('total_rows',$total_data);
 set('params','search='.h($_REQUEST['search']).'&total='.$total);
 $search_query = $_REQUEST['search'];
-
+$can_write = admin_can_write();
 ?>
 
 <div class="page_section" id="dashboard-page">
@@ -30,7 +30,9 @@ $search_query = $_REQUEST['search'];
                     <div id="tabs">
                       <ul>
                         <li><a href="#tabs-1">Collections</a></li>
+                        <?php if($can_write):?>
                         <li><a href="#tabs-2">Add Item</a></li>
+                        <?php endif;?>
                       </ul>
                       <div id="tabs-1" class="tabcontent">
                       <div class="shorter">
@@ -78,8 +80,14 @@ $search_query = $_REQUEST['search'];
                                     <td><?=$data[$i]['yr']?></td>
                                     <td><?=$data[$i]['invent_no']?></td>
                                     <td class="center">
-                                    	<a href="<?=url('admin/collections/edit/'.$data[$i]['id'])?>" class="iconbtn"><span class="icon-pencil">&nbsp;</span></a>
-                                    	<a href="<?=url('admin/collections/delete/'.$data[$i]['id'])?>" class="iconbtn"><span class="icon-trash">&nbsp;</span></a>
+                                       
+                                    	
+                                    	<?php if($can_write):?>
+                                        <a href="<?=url('admin/collections/edit/'.$data[$i]['id'])?>" class="iconbtn"><span class="icon-pencil">&nbsp;</span></a>
+                                        <a href="<?=url('admin/collections/delete/'.$data[$i]['id'])?>" class="iconbtn"><span class="icon-trash">&nbsp;</span></a>
+                                        <?php else:?>
+                                        <a href="<?=url('admin/collections/view/'.$data[$i]['id'])?>" class="iconbtn"><span class="icon-pencil">&nbsp;</span></a>
+                                        <?php endif;?>
                                     </td>
                                 </tr>
                                 <?php endfor;?>
@@ -89,6 +97,7 @@ $search_query = $_REQUEST['search'];
                         getView('admin/paging');
                         ?>
                       </div><!-- end .tabcontent -->
+                      <?php if($can_write):?>
                       <div id="tabs-2" class="tabcontent">
                         <form class="pure-form pure-form-stacked" 
                               action="<?=url('admin/collections/add')?>" 
@@ -189,6 +198,7 @@ $search_query = $_REQUEST['search'];
                             </fieldset>
                         </form>
                       </div><!-- end .tabcontent -->
+                        <?php endif;?>
                     </div><!-- end #tabs -->
                 </div><!-- end .col1 -->
             </div><!-- end .row -->

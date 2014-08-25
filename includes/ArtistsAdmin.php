@@ -1,76 +1,102 @@
 <?php
 use Cocur\Slugify\Slugify;
 class ArtistsAdmin extends Controller{
+	public function beforeFilter(){
+		global $current_path;
+		
+		
+		if(eregi('edit|delete|add|update',$current_path) && !admin_can_write()){
+			redirect('/admin/access_denied');
+		}
+	}
 	public function anyIndex(){
 		$rs = $this->getArtists();
 		set('data',$rs);
 		return render('artists/admin_index');
 	}
 	public function postAdd(){
-		$params = array('name'=>h($_POST['name']),
+		if(admin_can_write()){
+			$params = array('name'=>h($_POST['name']),
 						'descr'=>($_POST['descr'])
 				  );
 		
-		$rs = $this->db->save('artists',$params);
+			$rs = $this->db->save('artists',$params);
 
-		if($rs!=0){
-			$msg = "Data seniman baru telah berhasil disimpan";
+			if($rs!=0){
+				$msg = "Data seniman baru telah berhasil disimpan";
+			}else{
+				$msg = "Tidak berhasil menyimpan data, silahkan coba kembali nanti !";
+			}
+			
 		}else{
-			$msg = "Tidak berhasil menyimpan data, silahkan coba kembali nanti !";
+			$msg = "Mohon maaf, akun anda tidak diizinkan untuk mengubah data ini !";
 		}
 		setFlash($msg);
 		redirect('/admin/artists');
 	}
 	public function postUpdate(){
-		$id = intval($_POST['id']);
+		if(admin_can_write()){
+			$id = intval($_POST['id']);
 
-		$rs = $this->getArtistById($id);
+			$rs = $this->getArtistById($id);
 
-		$params = array('name'=>h($_POST['name']),
-						'descr'=>($_POST['descr'])
-				  );
-		
-		$update = $this->db->update($id,'artists',$params);
+			$params = array('name'=>h($_POST['name']),
+							'descr'=>($_POST['descr'])
+					  );
+			
+			$update = $this->db->update($id,'artists',$params);
 
-		if($update!=0){
-			$msg = "Perubahan data  `".$rs['name']."` telah berhasil disimpan";
+			if($update!=0){
+				$msg = "Perubahan data  `".$rs['name']."` telah berhasil disimpan";
+			}else{
+				$msg = "Tidak berhasil merubah data `".$rs['name']."`, silahkan coba kembali nanti !";
+			}
 		}else{
-			$msg = "Tidak berhasil merubah data `".$rs['name']."`, silahkan coba kembali nanti !";
+			$msg = "Mohon maaf, akun anda tidak diizinkan untuk mengubah data ini !";
 		}
 		setFlash($msg);
 		redirect('/admin/artists');
 	}
 	public function getDelete($id){
-		global $upload_path;
-		$confirm = intval(@$_GET['confirm']);
-		$id = intval($id);
-		$rs = $this->getArtistById($id);
+		if(admin_can_write()){
+			global $upload_path;
+			$confirm = intval(@$_GET['confirm']);
+			$id = intval($id);
+			$rs = $this->getArtistById($id);
 
-		set('rs',$rs);
+			set('rs',$rs);
 
-		if($confirm==1){
-			$del = $this->db->delete($id,'artists');
-			
-			if($del>0){
-				setFlash("Data `{$rs['name']}` telah berhasil dihapus !");
-				//remove the physical file
-				@unlink($upload_path.'/'.$rs[0]['image']);
+			if($confirm==1){
+				$del = $this->db->delete($id,'artists');
+				
+				if($del>0){
+					setFlash("Data `{$rs['name']}` telah berhasil dihapus !");
+					//remove the physical file
+					@unlink($upload_path.'/'.$rs[0]['image']);
+				}else{
+					setFlash("Data `{$rs['name']}` tidak berhasil dihapus. Silahkan coba kembali !");
+				}
+				return redirect('/admin/artists');
 			}else{
-				setFlash("Data `{$rs['name']}` tidak berhasil dihapus. Silahkan coba kembali !");
+				return render('artists/admin_confirm_delete');
 			}
-			return redirect('/admin/artists');
 		}else{
-			return render('artists/admin_confirm_delete');
+			$msg = "Mohon maaf, akun anda tidak diizinkan untuk mengubah data ini !";
+			setFlash($msg);
+			return redirect('/admin/artists');
 		}
 	}
 	public function getEdit($id){
-		$id = intval($id);
-
-		$rs = $this->getArtistById($id);
-
-		set('rs',$rs);
-		
-		return render('artists/admin_edit');
+		if(admin_can_write()){
+			$id = intval($id);
+			$rs = $this->getArtistById($id);
+			set('rs',$rs);
+			return render('artists/admin_edit');
+		}else{
+			$msg = "Mohon maaf, akun anda tidak diizinkan untuk mengubah data ini !";
+			setFlash($msg);
+			return redirect('/admin/artists');
+		}
 	}
 	private function isValid($str){
 		

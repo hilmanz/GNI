@@ -6,8 +6,9 @@ class Controller{
 		$this->db = $db;
 		if($isAdmin && !isAdminLogin()){
 			redirect('/admin/login');
-
 		}
+		$this->beforeFilter();
 	}
+	public function beforeFilter(){}
 
 }

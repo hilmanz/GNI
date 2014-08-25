@@ -6,7 +6,7 @@ $params = array();
 define("_SLASH_","/");
 function processInput($uri){  
 	
-	global $output,$base_url;
+	global $output,$base_url,$current_path;
 
 	$chunk = explode('?',$_SERVER['REQUEST_URI']);
 
@@ -26,7 +26,11 @@ function processInput($uri){
 			$n++;
 		}
 	}
-
+	
+	//temporary hack to handle 'admin' route
+	if($uri=='admin'){
+		$uri='';
+	}
 
 	$current_path = $uri;
 	
@@ -111,7 +115,7 @@ function isAdminLogin(){
 	return $_SESSION['isAdminLogin'];
 }
 function getAdminSession(){
-	return $_SESSIOn['session_admin'];
+	return $_SESSION['session_admin'];
 }
 //write the absolute url of the path
 function url($path){
@@ -178,3 +182,33 @@ function select_options($data,$id,$label,$default=''){
 function now(){
 	return date("Y-m-d H:i:s");
 }
+
+
+//ADMINs ACL function
+function admin_can_read(){
+	global $ACL;
+	$sess = getAdminSession();
+	$role = strtoupper($sess['role']);
+	return admin_check_role_acl($role,'read');
+}
+function admin_can_write(){
+	global $ACL;
+	$sess = getAdminSession();
+	$role = strtoupper($sess['role']);
+	
+	return admin_check_role_acl($role,'write');
+}
+function admin_has_credential_access(){
+	global $ACL;
+	$sess = getAdminSession();
+	$role = strtoupper($sess['role']);
+	$role ="EDITOR";
+	return admin_check_role_acl($role,'credential');
+}
+function admin_check_role_acl($role,$access_name){
+	global $ACL;
+	if($ACL[$role][$access_name]==1){
+		return true;
+	}
+}
+//--->

@@ -15,15 +15,14 @@ class Admin{
 		if(!isset($_SESSION['isAdminLogin'])){
 			$_SESSION['isAdminLogin'] = false;
 		}
+
 		if($_SESSION['isAdminLogin']==false && !$this->noLoginRedirect){
-			pr('yey');
-			die();
+			
 			redirect('/admin/login');
 			
 		}else{
-			pr('nay');
-			die();
-			if(!$this->validate_session()){
+			
+			if(!$this->validate_session() && !$this->noLoginRedirect){
 				redirect('/admin/login');
 			}
 			

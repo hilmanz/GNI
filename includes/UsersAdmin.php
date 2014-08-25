@@ -1,6 +1,14 @@
 <?php
 use Cocur\Slugify\Slugify;
 class UsersAdmin extends Controller{
+	public function beforeFilter(){
+		global $current_path;
+		
+		
+		if(eregi('edit|delete|add|update',$current_path) && !admin_has_credential_access()){
+			redirect('/admin/access_denied');
+		}
+	}
 	public function anyIndex(){
 		$rs = $this->getTypes();
 		set('data',$rs);

@@ -31,7 +31,9 @@ $search_query = $_REQUEST['search'];
                     <div id="tabs">
                       <ul>
                         <li><a href="#tabs-1">Daftar Seniman</a></li>
+                         <?php if(admin_can_write()):?>
                         <li><a href="#tabs-2">Tambah Data</a></li>
+                        <?php endif;?>
                       </ul>
                       <div id="tabs-1" class="tabcontent">
                       <div class="shorter">
@@ -74,8 +76,10 @@ $search_query = $_REQUEST['search'];
                                     <td><?=$data[$i]['descr']?></td>
                                    
                                     <td class="center">
+                                        <?php if(admin_can_write()):?>
                                     	<a href="<?=url('admin/artists/edit/'.$data[$i]['id'])?>" class="iconbtn"><span class="icon-pencil">&nbsp;</span></a>
                                     	<a href="<?=url('admin/artists/delete/'.$data[$i]['id'])?>" class="iconbtn"><span class="icon-trash">&nbsp;</span></a>
+                                        <?php endif;?>
                                     </td>
                                 </tr>
                                 <?php endfor;?>
@@ -85,6 +89,7 @@ $search_query = $_REQUEST['search'];
                         getView('admin/paging');
                         ?>
                       </div><!-- end .tabcontent -->
+                       <?php if(admin_can_write()):?>
                       <div id="tabs-2" class="tabcontent">
                         <form class="pure-form pure-form-stacked" 
                               action="<?=url('admin/artists/add')?>" 
@@ -105,6 +110,7 @@ $search_query = $_REQUEST['search'];
                             </fieldset>
                         </form>
                       </div><!-- end .tabcontent -->
+                    <?php endif;?>
                     </div><!-- end #tabs -->
                 </div><!-- end .col1 -->
             </div><!-- end .row -->

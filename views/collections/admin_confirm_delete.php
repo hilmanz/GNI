@@ -20,6 +20,7 @@ $rs = get('rs');
         <div class="content">
         	<div class="row">
             	<div class="col1">
+                    <?php if(admin_can_write()):?>
                     <div id="tabs">
                       <ul>
                         <li><a href="#tabs-1">Remove Item</a></li>
@@ -31,6 +32,9 @@ $rs = get('rs');
                       </div><!-- end .tabcontent -->
                       
                     </div><!-- end #tabs -->
+                    <?php else:?>
+                    <h3>Access Denied</h3>
+                    <?php endif;?>
                 </div><!-- end .col1 -->
             </div><!-- end .row -->
         </div><!-- end .content -->

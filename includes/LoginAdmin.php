@@ -2,7 +2,7 @@
 class LoginAdmin extends Admin{
 	var $noLoginRedirect = true;
 	public function beforeFilter(){
-		
+		parent::beforeFilter();
 	}
 	public function getIndex(){
 		
@@ -40,7 +40,7 @@ class LoginAdmin extends Admin{
 											'username'=>$user['username'],
 											'id'=>$user['id'],
 											'fullnames'=>$user['fullnames'],
-											'group'=>$user['group']);
+											'role'=>$user['role']);
 		$_SESSION['isAdminLogin'] = true;
 	}
 	private function updateLastLogin($user_id){

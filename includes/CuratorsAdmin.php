@@ -1,6 +1,14 @@
 <?php
 use Cocur\Slugify\Slugify;
 class CuratorsAdmin extends Controller{
+	public function beforeFilter(){
+		global $current_path;
+		
+		
+		if(eregi('edit|delete|add|update',$current_path) && !admin_can_write()){
+			redirect('/admin/access_denied');
+		}
+	}
 	public function anyIndex(){
 		$rs = $this->getCurators();
 		set('data',$rs);
@@ -64,6 +72,7 @@ class CuratorsAdmin extends Controller{
 		}
 	}
 	public function getEdit($id){
+		print "yey";
 		$id = intval($id);
 
 		$rs = $this->getCuratorById($id);
