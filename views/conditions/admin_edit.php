@@ -23,7 +23,7 @@ $rs = get('rs');
                     <div id="tabs">
                       <ul>
                         <li><a href="#tabs-1">Ubah Data</a></li>
-                        <li><a href="#tabs-2">Petunjuk</a></li>
+                        
                       </ul>
                       <div id="tabs-1" class="tabcontent">
                         <form class="pure-form pure-form-stacked" 
@@ -43,10 +43,7 @@ $rs = get('rs');
                             </fieldset>
                         </form>
                       </div><!-- end .tabcontent -->
-                      <div id="tabs-2" class="tabcontent">
-                        <h3>Petunjuk</h3>
-                        <p>Lorem ipsum dolor sit amet</p>
-                      </div><!-- end .tabcontent -->
+                      
                     </div><!-- end #tabs -->
                 </div><!-- end .col1 -->
             </div><!-- end .row -->

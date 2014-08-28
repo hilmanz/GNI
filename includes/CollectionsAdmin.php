@@ -14,6 +14,7 @@ class CollectionsAdmin extends Controller{
 
 		$this->populateForm();
 		
+		set('years',$this->getYears());
 
 		return render('collections/admin_index');
 	}
@@ -156,32 +157,36 @@ class CollectionsAdmin extends Controller{
 		return $results;
 	}
 	public function getCollections(){
+		$year = intval($_REQUEST['tahun']);
 		$limit = intval($_REQUEST['total']);
 		if($limit == 0){
 			$limit = 10;
 		}
-
+		$ANDs = "";
+		if($year>0){
+			$ANDs.=" AND YEAR(create_date) = ".$year;
+		}
 		$start = intval($_REQUEST['start']);
-		if(strlen($_REQUEST['search']) > 0 && $this->isValid($_REQUEST['search'])){
+		if((strlen($_REQUEST['search']) > 0 && $this->isValid($_REQUEST['search'])) || $year > 0){
 			$search = htmlspecialchars($_REQUEST['search']);
 			$results = $this->db->query("SELECT a.id,a.name,slug, invent_no, matrial, 
 				YEAR(create_date) as yr, obtain, created,modified, image,b.name AS artist_name
 				FROM collections a
 				INNER JOIN artists b ON a.artist_id = b.id 
-				WHERE b.name LIKE '%{$search}%' 
+				WHERE (b.name LIKE '%{$search}%' 
 				OR a.name LIKE '%{$search}%' 
 				OR YEAR(create_date) LIKE '%{$search}%' 
 				OR invent_no LIKE '%{$search}%'
-				
+				) {$ANDs}
 				ORDER BY a.id LIMIT {$start},{$limit};");
 			
 			$sql = "SELECT COUNT(a.id) as total
 					FROM collections a
 					INNER JOIN artists b ON a.artist_id = b.id
-					WHERE b.name LIKE '%{$search}%' 
+					WHERE (b.name LIKE '%{$search}%' 
 					OR a.name LIKE '%{$search}%' 
 					OR YEAR(create_date) LIKE '%{$search}%' 
-					OR invent_no LIKE '%{$search}%'";
+					OR invent_no LIKE '%{$search}%') {$ANDs}";
 			$total = $this->db->query($sql);
 		}else{
 			$results = $this->db->query("SELECT a.id,a.name,slug, invent_no, matrial, 
@@ -195,10 +200,22 @@ class CollectionsAdmin extends Controller{
 			$total = $this->db->query($sql);
 	
 		}
-
 		
 
 		return array('rs'=>$results,'rows'=>$total[0]['total']);
+	}
+	private function getYears(){
+		$results = $this->db->query("SELECT yr FROM (SELECT YEAR(create_date) as yr 
+													 FROM collections 
+													 GROUP BY YEAR(create_date)) a
+									ORDER BY yr ASC");
+		
+		$year = array();
+		for($i=0;$i<sizeof($results);$i++){
+			$year[] = $results[$i]['yr'];
+		}
+
+		return $year;
 	}
 	public function postAdd(){
 		global $upload_path;

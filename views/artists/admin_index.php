@@ -40,10 +40,10 @@ $search_query = $_REQUEST['search'];
                       	<form class="pure-form shortTable">
                         	<span>Show</span>
                                 <select id="state">
-                                    <option>10</option>
-                                    <option>20</option>
-                                    <option>30</option>
-                                    <option>40</option>
+                                    <option <?php if($total==10):echo "selected='selected'";endif;?>>10</option>
+                                    <option <?php if($total==20):echo "selected='selected'";endif;?>>20</option>
+                                    <option <?php if($total==30):echo "selected='selected'";endif;?>>30</option>
+                                    <option <?php if($total==40):echo "selected='selected'";endif;?>>40</option>
                                 </select>
                             <span>Entries</span>
                         </form>
@@ -58,7 +58,7 @@ $search_query = $_REQUEST['search'];
                             <thead>
                                 <tr>
                                     <th width="1" class="center">No</th>
-                                    <th>Nama</th>
+                                    <th style="width:300px;">Nama</th>
                                     <th>Deskripsi</th>
                                     <th width="100" class="center">Aksi</th>
                                 </tr>

@@ -58,7 +58,7 @@ $search_query = $_REQUEST['search'];
                                     <th width="1" class="center">No</th>
                                     <th>Nama Lengkap</th>
                                     <th>Username</th>
-                                    <th>Group</th>
+                                    <th>Role</th>
                                     <th>Tanggal Daftar</th>
                                     <th width="100" class="center">Aksi</th>
                                 </tr>
@@ -74,7 +74,7 @@ $search_query = $_REQUEST['search'];
                                     <td class="center"><?=$no?></td>
                                     <td><?=$data[$i]['fullnames']?></td>
                                     <td><?=$data[$i]['username']?></td>
-                                    <td><?=$data[$i]['group']?></td>
+                                    <td><?=$data[$i]['role']?></td>
                                     <td><?=date("d-m-Y",strtotime($data[$i]['created']))?></td>
                                    
                                     <td class="center">
@@ -106,9 +106,9 @@ $search_query = $_REQUEST['search'];
                                 </div>
                                 <label>Group</label>
                                 <select name="role">
-                                     <?=select_options(array(array('name'=>'supervisor'),
-                                                            array('name'=>'editor'),
-                                                            array('name'=>'readonly')),'name','name')?>
+                                     <?=select_options(array(array('name'=>'administrator'),
+                                                            array('name'=>'manager'),
+                                                            array('name'=>'user')),'name','name')?>
                                     
                                 </select>
                                 <div class="pure-controls">

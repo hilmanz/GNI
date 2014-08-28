@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title>ADMIN</title>
+	<title>DATABASE KARYA SENI GALERI NASIONAL INDONESIA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="ADMIN">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">

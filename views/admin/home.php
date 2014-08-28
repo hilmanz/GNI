@@ -31,7 +31,9 @@
             <div class="titlebox">
                 <h2 class="fl"><span class="icon-bars">&nbsp;</span> Jumlah Submisi Terakhir</h2>
             </div><!-- end .titlebox -->
-            <div id="charts" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+            <div class="chartbox">
+                <div id="charts" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+            </div>
         </div><!-- end .content -->
     </div><!-- end #container -->
 </div><!-- end #home -->
@@ -72,7 +74,7 @@ for(var i in data){
             tooltip: {
                 headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
                 pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                    '<td style="padding:0"><b>{point.y:f} </b></td></tr>',
                 footerFormat: '</table>',
                 shared: true,
                 useHTML: true

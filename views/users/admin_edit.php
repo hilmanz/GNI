@@ -23,7 +23,7 @@ $rs = get('rs');
                     <div id="tabs">
                       <ul>
                         <li><a href="#tabs-1">Ubah Data</a></li>
-                        <li><a href="#tabs-2">Petunjuk</a></li>
+                       
                       </ul>
                       <div id="tabs-1" class="tabcontent">
                         <form class="pure-form pure-form-stacked" 
@@ -38,17 +38,17 @@ $rs = get('rs');
                                     <input name="username" type="text" placeholder="Username" class="pure-input-2-3" value="<?=$rs['username']?>">
                                 </div>
                                 <div class="pure-control-group">
-                                    <input name="password" type="password" placeholder="xxx" class="pure-input-2-3" value="<?=$rs['password']?>">
+                                    <input name="password" type="text" placeholder="masukkan password baru" class="pure-input-2-3" value="">
                                 </div>
                                 <div class="pure-control-group">
                                    <label>Group</label>
                                     <select name="role">
-                                         <?=select_options(array(array('name'=>'supervisor'),
-                                                                array('name'=>'editor'),
-                                                                array('name'=>'readonly')),'name','name',$rs['role'])?>
+                                         <?=select_options(array(array('name'=>'administrator'),
+                                                                array('name'=>'manager'),
+                                                                array('name'=>'user')),'name','name',$rs['role'])?>
                                         
                                     </select>
-                                </div>
+                                </div>l
                                 <div class="pure-controls">
                                     <input type="hidden" name="id" value="<?=intval($rs['id'])?>"/>
                                     <button type="submit" class="pure-button pure-button-primary">Simpan</button>
@@ -57,10 +57,7 @@ $rs = get('rs');
                             </fieldset>
                         </form>
                       </div><!-- end .tabcontent -->
-                      <div id="tabs-2" class="tabcontent">
-                        <h3>Petunjuk</h3>
-                        <p>Lorem ipsum dolor sit amet</p>
-                      </div><!-- end .tabcontent -->
+                      
                     </div><!-- end #tabs -->
                 </div><!-- end .col1 -->
             </div><!-- end .row -->

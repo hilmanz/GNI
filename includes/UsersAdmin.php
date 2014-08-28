@@ -48,14 +48,19 @@ class UsersAdmin extends Controller{
 			$msg = "Password tidak boleh kurang dari 6 digit silahkan coba kembali !";
 		}else{
 			
-			$hash = md5($_POST['password'].md5($_POST['username']));
+			
+
 			$params = array('fullnames'=>h($_POST['fullnames']),
 							'username'=>h($_POST['username']),
-							'password'=>$hash,
 							'modified'=>now(),
 							'role'=>h($_POST['role'])
 					  );
 			
+			if(strlen($_POST['password']) > 0){
+				$hash = md5($_POST['password'].md5($_POST['username']));	
+				$params['password'] = $hash;
+			}
+
 			$update = $this->db->update($id,'admins',$params);
 
 			if($update!=0){

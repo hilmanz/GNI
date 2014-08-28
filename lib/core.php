@@ -202,7 +202,7 @@ function admin_has_credential_access(){
 	global $ACL;
 	$sess = getAdminSession();
 	$role = strtoupper($sess['role']);
-	$role ="EDITOR";
+	
 	return admin_check_role_acl($role,'credential');
 }
 function admin_check_role_acl($role,$access_name){

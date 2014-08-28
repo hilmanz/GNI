@@ -4,8 +4,11 @@ $data = $rs['rs'];
 $total_data = $rs['rows'];
 $total = intval($_REQUEST['total']);
 if($total==0) $total = 10;
+if($total > 100){
+    $total = 100;
+}
 set('total_rows',$total_data);
-set('params','search='.h($_REQUEST['search']).'&total='.$total);
+set('params','search='.h($_REQUEST['search']).'&total='.$total.'&tahun='.intval($_REQUEST['tahun']));
 $search_query = $_REQUEST['search'];
 $can_write = admin_can_write();
 ?>
@@ -37,17 +40,38 @@ $can_write = admin_can_write();
                       <div id="tabs-1" class="tabcontent">
                       <div class="shorter">
                       	<form class="pure-form shortTable">
-                        	<span>Show</span>
+                             <div style="margin-left:20px;float:left;">
+                        	<span>Tampilkan</span>
                                 <select id="state">
-                                    <option>10</option>
-                                    <option>20</option>
-                                    <option>30</option>
-                                    <option>40</option>
+                                    <option <?php if($total==10):echo "selected='selected'";endif;?>>10</option>
+                                    <option <?php if($total==20):echo "selected='selected'";endif;?>>20</option>
+                                    <option <?php if($total==30):echo "selected='selected'";endif;?>>30</option>
+                                    <option <?php if($total==40):echo "selected='selected'";endif;?>>40</option>
                                 </select>
-                            <span>Entries</span>
+                            <span>Entri</span>
+                            </div>
+                            
                         </form>
                         <form class="pure-form searchBox" action="<?=url('admin/collections/')?>" method="GET" enctype="application/x-www-form-urlencoded">
-                            <input type="text" name="search" value="" placeholder="Judul, Nama Seniman, Nomor Inventory, Tahun" class="">
+                                <div style="margin-left:20px;float:left;"><span>Pencarian</span> </div>
+                                <div style="margin-left:20px;float:left;">
+                                <input type="text" name="search" value="" placeholder="Judul, Nama Seniman, Nomor Inventory, Tahun" class="">
+                                </div>
+                            <div style="margin-left:20px;float:left;">
+                            <span>Pilih Tahun</span>
+                                <select id="state" name="tahun">
+                                    <option value="">Semua</option>
+                                    <?php $thn = get('years');?>
+                                    <?php for($i=0;$i<sizeof($thn);$i++):?>
+                                        <?php if($thn[$i]==intval($_REQUEST['tahun'])):?>
+                                        <option value="<?=$thn[$i]?>" selected='selected'><?=$thn[$i]?></option>
+                                        <?php else:?>
+                                        <option value="<?=$thn[$i]?>"><?=$thn[$i]?></option>
+                                        <?php endif;?>
+                                    <?php endfor;?>
+                                </select>
+                            
+                            </div>
                             <input type="hidden" name="total" value="<?=$limit?>"/>
                             <input type="hidden" name="start" value="0"/>
                             <button type="submit" class="pure-button btnSearch"><span class="icon-search">&nbsp;</span></button>
@@ -57,7 +81,8 @@ $can_write = admin_can_write();
                             <thead>
                                 <tr>
                                     <th width="1" class="center">No</th>
-                                    <th>Named</th>
+                                    <th></th>
+                                    <th>Name</th>
                                     <th>Artist</th>
                                     <th>Obtained From</th>
                                     <th>Year</th>
@@ -74,6 +99,7 @@ $can_write = admin_can_write();
 
                                 <tr>
                                     <td class="center"><?=$no?></td>
+                                    <td><img src="<?=url('content/'.$data[$i]['image'])?>" width="100px"/></td>
                                     <td><?=$data[$i]['name']?></td>
                                     <td><?=$data[$i]['artist_name']?></td>
                                     <td><?=$data[$i]['obtain']?></td>
@@ -207,6 +233,6 @@ $can_write = admin_can_write();
 </div><!-- end #home -->
 <script>
 $("#state").change(function(){
-    document.location="?search=<?=$search_query?>&total="+parseInt($(this).val());
+    document.location="?search=<?=$search_query?>&tahun=<?=intval($_REQUEST['tahun'])?>&total="+parseInt($(this).val());
 });
 </script>
