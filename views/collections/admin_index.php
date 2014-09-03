@@ -17,7 +17,7 @@ $can_write = admin_can_write();
     <div id="container">
 
         <div class="titlebox">
-            <h2 class="fl"><span class="icon-newspaper">&nbsp;</span> Collections</h2>
+            <h2 class="fl"><span class="icon-newspaper">&nbsp;</span> Koleksi</h2>
         </div><!-- end .titlebox -->
         <?php
         $msg = getFlash();
@@ -32,9 +32,9 @@ $can_write = admin_can_write();
             	<div class="col1">
                     <div id="tabs">
                       <ul>
-                        <li><a href="#tabs-1">Collections</a></li>
+                        <li><a href="#tabs-1">Daftar Koleksi</a></li>
                         <?php if($can_write):?>
-                        <li><a href="#tabs-2">Add Item</a></li>
+                        <li><a href="#tabs-2">Tambah Barang</a></li>
                         <?php endif;?>
                       </ul>
                       <div id="tabs-1" class="tabcontent">
@@ -82,10 +82,10 @@ $can_write = admin_can_write();
                                 <tr>
                                     <th width="1" class="center">No</th>
                                     <th></th>
-                                    <th>Name</th>
-                                    <th>Artist</th>
-                                    <th>Obtained From</th>
-                                    <th>Year</th>
+                                    <th>Nama</th>
+                                    <th>Seniman</th>
+                                    <th>Didapatkan Dari</th>
+                                    <th>Tahun</th>
                                     <th>Invent No</th>
                                     <th width="100" class="center">Aksi</th>
                                 </tr>
@@ -99,7 +99,7 @@ $can_write = admin_can_write();
 
                                 <tr>
                                     <td class="center"><?=$no?></td>
-                                    <td><img src="<?=url('content/'.$data[$i]['image'])?>" width="100px"/></td>
+                                    <td><img src="<?=url('content/'.$data[$i]['image'])?>" width="70px"/></td>
                                     <td><?=$data[$i]['name']?></td>
                                     <td><?=$data[$i]['artist_name']?></td>
                                     <td><?=$data[$i]['obtain']?></td>
@@ -165,13 +165,13 @@ $can_write = admin_can_write();
                                     </select>
                                 </div>
                                 <div class="pure-control-group">
-                                    <label>Artist</label>
+                                    <label>Seniman</label>
                                     <select name="artist_id">
                                         <?=select_options(get('artists'),'id','name')?>
                                     </select>
                                 </div>
                                 <div class="pure-control-group">
-                                    <label>Curator</label>
+                                    <label>Kurator</label>
                                     <select name="curator_id">
                                          <?=select_options(get('curators'),'id','name')?>
                                     </select>
@@ -191,13 +191,13 @@ $can_write = admin_can_write();
                                     </select>
                                 </div>
                                 <div class="pure-control-group">
-                                    <label>Existancy</label>
+                                    <label>Keberadaan</label>
                                     <select name="exist_stat_id">
                                         <?=select_options(get('exist_stats'),'id','name')?>
                                     </select>
                                 </div>
                                 <div class="pure-control-group">
-                                    <label>Artist Signed ? </label>
+                                    <label>Tandatangan Artis ? </label>
                                     <select name="artist_sign">
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -218,7 +218,7 @@ $can_write = admin_can_write();
                                     <input type="text" name='updatedBy' value="<?=$_SESSION['session_admin']['fullnames']?>" class="pure-input-2-3" >
                                 </div>
                                 <div class="pure-controls">
-                                    <button type="submit" class="pure-button pure-button-primary">Submit</button>
+                                    <button type="submit" class="pure-button pure-button-primary">Simpan</button>
                                     <button class="pure-button pure-button-primary">Reset</button>
                                 </div>
                             </fieldset>

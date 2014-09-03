@@ -9,19 +9,19 @@
             	<div class="col4">
                 	<div class="box">
                     	<h3 class="yellow"><?=get('total_collections')?></h3>
-                        <h5><span class="ico icon-users">&nbsp;</span>Total Collections</h5>
+                        <h5><span class="ico icon-users">&nbsp;</span>Total Koleksi</h5>
                     </div><!-- end .box -->
                 </div><!-- end .col4 -->
             	<div class="col4">
                 	<div class="box">
                     	<h3 class="green"><?=get('total_artists')?></h3>
-                        <h5><span class="ico icon-user">&nbsp;</span>Total Artists</h5>
+                        <h5><span class="ico icon-user">&nbsp;</span>Total Seniman</h5>
                     </div><!-- end .box -->
                 </div><!-- end .col4 -->
             	<div class="col4">
                 	<div class="box">
                     	<h3 class="orange"><?=get('total_damaged')?></h3>
-                        <h5><span class="ico icon-user2">&nbsp;</span>Butuh Perbaikan</h5>
+                        <h5><span class="ico icon-user2">&nbsp;</span>Yang Butuh Perbaikan</h5>
                     </div><!-- end .box -->
                 </div><!-- end .col4 -->
             	
@@ -86,7 +86,7 @@ for(var i in data){
                 }
             },
             series: [{
-                name: 'Art Submission',
+                name: 'Data Submisi',
                 data: vals
     
             }]

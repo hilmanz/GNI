@@ -14,19 +14,19 @@ if(pathHas('')){
             </li>
             <li>
                 <a href="<?=url('admin/collections/')?>">
-                <span class="icon-books">&nbsp;</span> <span class="navName">Collections</span>
+                <span class="icon-books">&nbsp;</span> <span class="navName">Koleksi</span>
                 </a>
                
             </li>
             <li>
                 <a href="<?=url('admin/artists/')?>">
-                <span class="icon-books">&nbsp;</span> <span class="navName">Artists</span>
+                <span class="icon-books">&nbsp;</span> <span class="navName">Seniman</span>
                 </a>
                
             </li>
             <li>
                 <a href="<?=url('admin/curators/')?>">
-                <span class="icon-books">&nbsp;</span> <span class="navName">Curators</span>
+                <span class="icon-books">&nbsp;</span> <span class="navName">Kurator</span>
                 </a>
                
             </li>
@@ -42,7 +42,7 @@ if(pathHas('')){
                 <span class="icon-cog">&nbsp;</span> <span class="navName">Setting</span>
                 </a>
                 <ul>
-                    <li><a href="<?=url('admin/users')?>">Managemen User</a></li>
+                    <li><a href="<?=url('admin/users')?>">Manajemen User</a></li>
                     <li><a href="<?=url('admin/conditions')?>">Kondisi Barang</a></li>
                     <li><a href="<?=url('admin/status')?>">Keberadaan Barang</a></li>
                     <li><a href="<?=url('admin/matrials')?>">Matrials</a></li>
@@ -53,7 +53,7 @@ if(pathHas('')){
             <?php endif;?>
             <li>
                 <a href="javascript:void(0);" class="collapse">
-                <span class="icon-arrow-left2">&nbsp;</span> <span class="navName">Collapse Menu</span>
+                <span class="icon-arrow-left2">&nbsp;</span> <span class="navName">Kecilkan Menu</span>
                 </a>
             </li>
         </ul>

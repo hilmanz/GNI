@@ -129,15 +129,18 @@ body {
 	z-index:10;
 	height:65px;
 }
-.logo-box{
+.logo-box {
 	text-align: center;
+	width: 600px;
+	height: 250px;
+	margin: auto auto -9px auto;
 }
 .logo{
 	float:left;
 	width:58px;
 }
 .logo.twh{
-	margin-left:50px;
+	margin-left:18px;
 }
 .judul{
 	float:left;
@@ -236,16 +239,17 @@ body {
 	text-align:center;
 }
 #dashreport .box{
-	padding:50px 0;
+	padding:20px 0;
 }
 #dashreport .col3{
 	float:none;
 	margin:0 auto;
 }
 #dashreport h3{
-	font-size:70px;
-	font-weight:600;
-	margin:0; line-height:70px;
+	font-size: 35px;
+	font-weight: 600;
+	margin: 0;
+	line-height: 30px;
 }
 #dashreport .yellow{
 	color:#fce980;
@@ -429,6 +433,7 @@ body {
 table{
 	border-bottom:solid 1px #ddd;
 	width:100%;
+	font-size:12px;
 }
 table td,table th{
 	border-right:solid 1px #ddd;
@@ -451,6 +456,7 @@ table th{
 	color:#fff;
 	border-color:#000;
 }
+
 /**=========================  SIDEBAR =========================**/
 #sidebar{
 	width:230px;
@@ -568,7 +574,7 @@ table th{
 .paging a{
 	display:inline-block;
 	background:#00232e;
-	width:30px; height:30px;
+	width:26px; height:30px;
 	line-height:30px;
 	margin:0 1px 0 0;
 	color:#fff;
@@ -617,7 +623,8 @@ table th{
 }
 /** ========================= LOGIN ========================= **/
 #login-page{
-	background:url(../images/bg_login.jpg) no-repeat #000 center fixed;
+	/*background:url(../images/bg_login.jpg) no-repeat #000 center fixed;*/
+	background-color:white;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -629,7 +636,7 @@ table th{
 	width:900px;
 	margin:0 auto;
 	position:relative;
-	top:150px;
+	top:60px;
 }
 #ultah{
 	clear:both;
@@ -668,13 +675,23 @@ table th{
 	color:#258ac3;
 }
 .loginbox{
-	width:400px;
+	width:300px;
 	height:400px;
 	padding:20px;
 	margin:0 auto;
 }
+div.logo1 {
+	width: 200px;
+	float: left;
+	margin: 0px 0px 0px 87px;
+}
+div.logo2 {
+	width: 300px;
+	float: left;
+	margin: -45px auto 0 auto;
+}
 .loginbox input[type="text"],.loginbox input[type="password"]{
-	border: 0 none;
+	border: 1px solid #ccc;
 	box-shadow: none;
 	color: #666666;
 	font-size: 14px;

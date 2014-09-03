@@ -7,7 +7,7 @@ $rs = get('rs');
     <div id="container">
 
         <div class="titlebox">
-            <h2 class="fl"><span class="icon-newspaper">&nbsp;</span> Collections</h2>
+            <h2 class="fl"><span class="icon-newspaper">&nbsp;</span> Koleksi</h2>
         </div><!-- end .titlebox -->
         <?php
         $msg = getFlash();
@@ -23,7 +23,7 @@ $rs = get('rs');
                     <?php if(admin_can_write()):?>
                     <div id="tabs">
                       <ul>
-                        <li><a href="#tabs-1">Remove Item</a></li>
+                        <li><a href="#tabs-1">Hapus Barang</a></li>
                        
                       </ul>
                       <div id="tabs-1" class="tabcontent">
