@@ -20,20 +20,20 @@ if(pathHas('')){
             </li>
             <li>
                 <a href="<?=url('admin/artists/')?>">
-                <span class="icon-books">&nbsp;</span> <span class="navName">Seniman</span>
+                <span class="icon-quill">&nbsp;</span> <span class="navName">Seniman</span>
                 </a>
                
             </li>
             <li>
                 <a href="<?=url('admin/curators/')?>">
-                <span class="icon-books">&nbsp;</span> <span class="navName">Kurator</span>
+                <span class="icon-user4">&nbsp;</span> <span class="navName">Kurator</span>
                 </a>
                
             </li>
             <?php if(admin_has_credential_access()):?>
             <li>
                 <a href="<?=url('admin/art-types/')?>">
-                <span class="icon-books">&nbsp;</span> <span class="navName">Jenis Karya Seni</span>
+                <span class="icon-pencil">&nbsp;</span> <span class="navName">Jenis Karya Seni</span>
                 </a>
                
             </li>
@@ -51,6 +51,11 @@ if(pathHas('')){
                 </ul>
             </li>
             <?php endif;?>
+            <li>
+                <a href="#">
+                <span class="icon-download3">&nbsp;</span> <span class="navName">Download Report</span>
+                </a>
+            </li>
             <li>
                 <a href="javascript:void(0);" class="collapse">
                 <span class="icon-arrow-left2">&nbsp;</span> <span class="navName">Kecilkan Menu</span>

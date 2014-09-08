@@ -6,24 +6,24 @@
         </div><!-- end .titlebox -->
         <div class="blackbox" id="dashreport">
         	<div class="row">
-            	<div class="col4">
+            	<div class="col3">
                 	<div class="box">
                     	<h3 class="yellow"><?=get('total_collections')?></h3>
-                        <h5><span class="ico icon-users">&nbsp;</span>Total Koleksi</h5>
+                        <h5><span class="ico icon-books">&nbsp;</span>Total Koleksi</h5>
                     </div><!-- end .box -->
-                </div><!-- end .col4 -->
-            	<div class="col4">
+                </div><!-- end .col3 -->
+            	<div class="col3">
                 	<div class="box">
                     	<h3 class="green"><?=get('total_artists')?></h3>
-                        <h5><span class="ico icon-user">&nbsp;</span>Total Seniman</h5>
+                        <h5><span class="ico icon-quill">&nbsp;</span>Total Seniman</h5>
                     </div><!-- end .box -->
-                </div><!-- end .col4 -->
-            	<div class="col4">
+                </div><!-- end .col3 -->
+            	<div class="col3">
                 	<div class="box">
                     	<h3 class="orange"><?=get('total_damaged')?></h3>
-                        <h5><span class="ico icon-user2">&nbsp;</span>Yang Butuh Perbaikan</h5>
+                        <h5><span class="ico icon-wrench">&nbsp;</span>Yang Butuh Perbaikan</h5>
                     </div><!-- end .box -->
-                </div><!-- end .col4 -->
+                </div><!-- end .col3 -->
             	
             </div><!-- end .row -->
         </div><!-- end .blackbox -->

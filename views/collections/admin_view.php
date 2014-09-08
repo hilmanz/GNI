@@ -14,7 +14,7 @@ $rs = get('rs');
                     <table width="100%" class="table">
                         <tr>
                             <td colspan="4">
-                               <img src="<?=url('content/'.$rs['image'])?>"/>
+                               <a class="showPopup" href="#"><img src="<?=url('content/'.$rs['image'])?>"/></a>
                             </td>
                         </tr>
                         <tr>

@@ -10,7 +10,7 @@
              <img src="<?=url('images/LogoGNI.jpg')?>" width="100%"/>
         </div>
     </div>
-    <div style="text-align:center">
+    <div class="center">
     <h1>Database Koleksi Karya Seni Rupa <br/>Galeri Nasional Indonesia</h1>
     </div>
     <div class="loginbox">

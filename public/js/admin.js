@@ -17,15 +17,17 @@ $(document).ready(function() {
 
 	if($.cookie("state") == 1) {
 		$('#body').addClass("smallmenu");
-	} else {
+	} else if ($.cookie("state") == 0){
 		$('#body').removeClass("smallmenu");
 	}
 	$( ".collapse" ).click(function() {
 	   $( "#body" ).toggleClass( "smallmenu" );
 		if($("#body").hasClass("smallmenu")) {
 			$.cookie("state", 1);
+			alert("smallmenu")
 		} else {
 			$.cookie("state", 0);
+			alert("removeClass smallmenu")
 		}
 		return false;
 	});

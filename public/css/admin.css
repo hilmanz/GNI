@@ -132,8 +132,18 @@ body {
 .logo-box {
 	text-align: center;
 	width: 600px;
-	height: 250px;
-	margin: auto auto -9px auto;
+	margin:0 auto;
+}
+.logo-box img{
+	width:100%;
+}
+.logo1{
+	display:inline-block;
+	width:140px;
+}
+.logo2{
+	display:inline-block;
+	width:140px;
 }
 .logo{
 	float:left;
@@ -239,17 +249,23 @@ body {
 	text-align:center;
 }
 #dashreport .box{
-	padding:20px 0;
+	padding:50px 0;
+}
+#dashreport{
+	text-align:center;
 }
 #dashreport .col3{
 	float:none;
 	margin:0 auto;
+	display:inline-block;
+	width:30%;
+	padding:0;
 }
 #dashreport h3{
-	font-size: 35px;
+	font-size: 45px;
 	font-weight: 600;
 	margin: 0;
-	line-height: 30px;
+	line-height: 45px;
 }
 #dashreport .yellow{
 	color:#fce980;
@@ -468,7 +484,7 @@ table th{
 	top:65px;
 	min-height:110vh;
 	box-shadow:-10px 10px 20px rgba(0,0,0,0.3) inset;
-	z-index:999999;
+	z-index:1000;
 }
 .fakesidebar{
 	width:18%;
@@ -597,10 +613,25 @@ table th{
 }
 .popupContent{
 	background:#000;
-	max-width:500px;
+	max-width:700px;
 	position:relative;
 	margin:0 auto;
 	padding:20px;
+}
+.popupContent2{
+	background:#000;
+	max-width:800px;
+	position:relative;
+	margin:0 auto;
+	padding:20px;
+}
+.popupContent2 img{
+	width:100%;
+}
+.entry-popup{
+	background:#fff;
+	padding:20px;
+	color:333;
 }
 .mfp-close-btn-in .mfp-close{
 	opacity:1;
@@ -637,6 +668,11 @@ table th{
 	margin:0 auto;
 	position:relative;
 	top:60px;
+}
+#wraplogin h1{
+	text-transform:uppercase;
+	font-size:18px;
+	margin:40px 0 20px 0;
 }
 #ultah{
 	clear:both;
@@ -679,16 +715,6 @@ table th{
 	height:400px;
 	padding:20px;
 	margin:0 auto;
-}
-div.logo1 {
-	width: 200px;
-	float: left;
-	margin: 0px 0px 0px 87px;
-}
-div.logo2 {
-	width: 300px;
-	float: left;
-	margin: -45px auto 0 auto;
 }
 .loginbox input[type="text"],.loginbox input[type="password"]{
 	border: 1px solid #ccc;
