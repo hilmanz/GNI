@@ -24,10 +24,8 @@ $(document).ready(function() {
 	   $( "#body" ).toggleClass( "smallmenu" );
 		if($("#body").hasClass("smallmenu")) {
 			$.cookie("state", 1);
-			alert("smallmenu")
 		} else {
 			$.cookie("state", 0);
-			alert("removeClass smallmenu")
 		}
 		return false;
 	});
