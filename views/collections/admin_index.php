@@ -112,13 +112,10 @@ $can_write = admin_can_write();
                                     	<div class="popup">
                                         	<div class="popupContent" id="seniman-<?=$no?>">
                                             	<div class="entry-popup">
-                                                <h3><?=$data[$i]['name']?></h3>
-                                                <h4><?=$data[$i]['artist_name']?></h4>
-                                            	<p>Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas faucibus mollis interdum. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-
-<p>Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod.</p>
-
-<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec id elit non mi porta gravida at eget metus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>									</div>
+                                                    <h3><?=$data[$i]['name']?></h3>
+                                                    <h4><?=$data[$i]['artist_name']?></h4>
+                                                	<p><?=$data[$i]['artist_desc']?></p>									
+                                                </div>
                                                
                                             </div>
                                         </div>

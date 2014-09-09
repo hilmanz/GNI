@@ -170,7 +170,7 @@ class CollectionsAdmin extends Controller{
 		if((strlen($_REQUEST['search']) > 0 && $this->isValid($_REQUEST['search'])) || $year > 0){
 			$search = htmlspecialchars($_REQUEST['search']);
 			$results = $this->db->query("SELECT a.id,a.name,slug, invent_no, matrial, 
-				YEAR(create_date) as yr, obtain, created,modified, image,b.name AS artist_name
+				YEAR(create_date) as yr, obtain, created,modified, image,b.name AS artist_name,b.descr as artist_desc
 				FROM collections a
 				INNER JOIN artists b ON a.artist_id = b.id 
 				WHERE (b.name LIKE '%{$search}%' 
@@ -190,7 +190,7 @@ class CollectionsAdmin extends Controller{
 			$total = $this->db->query($sql);
 		}else{
 			$results = $this->db->query("SELECT a.id,a.name,slug, invent_no, matrial, 
-				YEAR(create_date) as yr, obtain, created,modified, image,b.name AS artist_name
+				YEAR(create_date) as yr, obtain, created,modified, image,b.name AS artist_name,b.descr as artist_desc
 				FROM collections a
 				INNER JOIN artists b ON a.artist_id = b.id  ORDER BY a.id LIMIT {$start},{$limit};");
 

@@ -31,7 +31,7 @@ function processInput($uri){
 	if($uri=='admin'){
 		$uri='';
 	}
-
+	
 	$current_path = $uri;
 	
 	if(eregi('json',$uri)){
@@ -210,5 +210,9 @@ function admin_check_role_acl($role,$access_name){
 	if($ACL[$role][$access_name]==1){
 		return true;
 	}
+}
+
+function outln($str){
+	echo $str.PHP_EOL;
 }
 //--->

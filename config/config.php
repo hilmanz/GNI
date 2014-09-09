@@ -33,4 +33,7 @@ $ACL = array('SUPERVISOR'=>array('read'=>1,'write'=>1,'credential'=>1),
 			  'MANAGER'=>array('read'=>1,'write'=>1,'credential'=>0),
 			  'USER'=>array('read'=>1,'write'=>0,'credential'=>0)
 			 );
+
+$PDF_DOWNLOAD_DIR = "/home/duf/htdocs/gni/public/content/koleksi_gni.pdf";
+
 ?>

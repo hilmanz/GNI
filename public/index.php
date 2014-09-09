@@ -13,11 +13,10 @@ if(!$isAdmin){
 		return $home->anyIndex();
 	});	
 }else{
-
+	
 	$router->get('/',function(){
 		
 		if(!isAdminLogin()){
-			print "tidak login";
 			redirect('/admin/login');
 		}else{
 			//home page

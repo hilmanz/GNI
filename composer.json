@@ -1,6 +1,8 @@
 {
     "require": {
         "phroute/phroute": "1.*",
-        "cocur/slugify": "0.*"
+        "cocur/slugify": "0.*",
+        "tecnick.com/tcpdf": "6.*",
+        "apache/log4php": "2.3.0"
     }
 }
