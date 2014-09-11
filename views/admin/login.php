@@ -2,13 +2,13 @@
 
 <div id="wraplogin">
     <div class="logo-box">
+        <div class="logo2">
+             <img src="<?=url('images/LogoGNI.jpg')?>" width="100%"/>
+        </div>
         <div class="logo1">
             <img src="<?=url('images/TWD.jpg')?>" width="100%"/>
         </div>
        
-        <div class="logo2">
-             <img src="<?=url('images/LogoGNI.jpg')?>" width="100%"/>
-        </div>
     </div>
     <div class="center">
     <h1>Database Koleksi Karya Seni Rupa <br/>Galeri Nasional Indonesia</h1>

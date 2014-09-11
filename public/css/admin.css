@@ -148,9 +148,10 @@ body {
 .logo{
 	float:left;
 	width:70px;
+	margin-left:18px;
 }
 .logo.twh{
-	margin-left:18px;
+	margin:0;
 }
 .judul{
 	float:left;
