@@ -7,7 +7,7 @@ $rs = get('rs');
     <div id="container">
 
         <div class="titlebox">
-            <h2 class="fl"><span class="icon-newspaper">&nbsp;</span> Koleksi</h2>
+            <h2 class="fl"><span class="icon-books">&nbsp;</span> Koleksi</h2>
         </div><!-- end .titlebox -->
         <?php
         $msg = getFlash();

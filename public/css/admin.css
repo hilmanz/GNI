@@ -127,7 +127,7 @@ body {
 	overflow:hidden;
 	box-shadow:0 0 5px rgba(0,0,0,0.5);
 	z-index:10;
-	height:65px;
+	height:75px;
 }
 .logo-box {
 	text-align: center;
@@ -147,14 +147,20 @@ body {
 }
 .logo{
 	float:left;
-	width:58px;
+	width:70px;
 }
 .logo.twh{
 	margin-left:18px;
 }
 .judul{
 	float:left;
-	margin:20px 0px 0px 20px;
+	text-transform:uppercase;
+	margin:0 0 0 20px;
+}
+.judul a{
+	display:block;
+	line-height:75px;
+	font-weight:700;
 }
 .logo img{
 	width:100%;
@@ -208,7 +214,7 @@ body {
    font-style:normal;
 }
 #thecontent{
-	margin:65px 0 0 230px;
+	margin:75px 0 0 230px;
 }
 .titlebox{
 	background:#258ac3;
@@ -481,7 +487,7 @@ table th{
 	position:relative;
 	position:fixed;
 	float:left;
-	top:65px;
+	top:75px;
 	min-height:110vh;
 	box-shadow:-10px 10px 20px rgba(0,0,0,0.3) inset;
 	z-index:1000;
@@ -492,7 +498,7 @@ table th{
 	background:#00232e;
 	position:fixed;
 	left:0;
-	top:65px; height:100%;
+	top:75px; height:100%;
 }
 #navbar a{
 	display:block;
@@ -831,3 +837,15 @@ table th{
 }
 .notibar h3 { margin: 15px 10px 10px 15px; }
 .notibar p { margin: 15px 10px 15px 15px; }
+a.cetakdata{
+	display: block;
+	float: right;
+	background: #258ac3;
+	color: #fff;
+	line-height: 30px;
+	padding: 0 15px;
+	border-radius: 5px;
+}
+a.cetakdata:hover{
+	background:#333;
+}

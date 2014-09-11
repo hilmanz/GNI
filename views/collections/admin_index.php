@@ -17,7 +17,7 @@ $can_write = admin_can_write();
     <div id="container">
 
         <div class="titlebox">
-            <h2 class="fl"><span class="icon-newspaper">&nbsp;</span> Koleksi</h2>
+            <h2 class="fl"><span class="icon-books">&nbsp;</span> Koleksi</h2>
         </div><!-- end .titlebox -->
         <?php
         $msg = getFlash();
@@ -85,6 +85,7 @@ $can_write = admin_can_write();
                                     <th>Nama</th>
                                     <th>Seniman</th>
                                     <th>Didapatkan Dari</th>
+                                    <th>Media</th>
                                     <th>Tahun</th>
                                     <th>Invent No</th>
                                     <th width="100" class="center">Aksi</th>
@@ -107,7 +108,7 @@ $can_write = admin_can_write();
                                             </div>
                                         </div>
                                     </td>
-                                    <td><?=$data[$i]['name']?></td>
+                                    <td><a href="<?=url('admin/collections/edit/'.$data[$i]['id'])?>"><?=$data[$i]['name']?></a></td>
                                     <td><a class="showPopup" href="#seniman-<?=$no?>"><?=$data[$i]['artist_name']?></a>
                                     	<div class="popup">
                                         	<div class="popupContent" id="seniman-<?=$no?>">
@@ -121,6 +122,7 @@ $can_write = admin_can_write();
                                         </div>
                                     </td>
                                     <td><?=$data[$i]['obtain']?></td>
+                                    <td><?=$data[$i]['media']?></td>
                                     <td><?=$data[$i]['yr']?></td>
                                     <td><?=$data[$i]['invent_no']?></td>
                                     <td class="center">
